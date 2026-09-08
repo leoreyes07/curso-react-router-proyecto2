@@ -7,11 +7,11 @@ import { TodoList } from '../ui/TodoList';
 import { TodoItem } from '../ui/TodoItem';
 import { TodosError } from '../ui/TodosError';
 import { TodosLoading } from '../ui/TodosLoading';
-import { EmptyTodos } from '../EmptyTodos';
+import { EmptyTodos } from '../ui/EmptyTodos';
 import { TodoForm } from '../ui/TodoForm';
-import { CreateTodoButton } from '../CreateTodoButton';
-import { Modal } from '../Modal';
-import { ChangeAlert } from '../ChangeAlert';
+import { CreateTodoButton } from '../ui/CreateTodoButton';
+import { Modal } from '../ui/Modal';
+import { ChangeAlert } from '../ui/ChangeAlert';
 
 function App() {
   const { state, stateUpdaters } = useTodos();
