@@ -10,7 +10,7 @@ function TodoSearch({ searchValue, setSearchValue, loading }) {
   return (
     <input
       className="TodoSearch"
-      placeholder="Cebolla"
+      placeholder="Ingresa tu nuevo to-do"
       value={searchValue}
       onChange={onSearchValueChange}
       disabled={loading}

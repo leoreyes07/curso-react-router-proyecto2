@@ -2,9 +2,9 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './TodoForm.css';
 
-function TodoForm({ submitEvent, label, submitText }) {
-  const [newTodoValue, setNewTodoValue] = React.useState('');
+function TodoForm(props) {
   const navigate = useNavigate();
+  const [newTodoValue, setNewTodoValue] = React.useState('');
 
   const onChange = (event) => {
     setNewTodoValue(event.target.value);
@@ -14,17 +14,17 @@ function TodoForm({ submitEvent, label, submitText }) {
   };
   const onSubmit = (event) => {
     event.preventDefault();
-    submitEvent(newTodoValue);
+    props.submitEvent(newTodoValue);
     navigate('/');
   };
 
   return (
     <form onSubmit={onSubmit}>
-      <label>{label}</label>
+      <label>{props.label}</label>
       <textarea
         value={newTodoValue}
         onChange={onChange}
-        placeholder="Cortar la cebolla para el almuerzo"
+        placeholder={props.placeholder || "Escribe un Todo"}
       />
       <div className="TodoForm-buttonContainer">
         <button
@@ -38,7 +38,7 @@ function TodoForm({ submitEvent, label, submitText }) {
           type="submit"
           className="TodoForm-button TodoForm-button--add"
         >
-          {submitText}
+          {props.submitText}
         </button>
       </div>
     </form>
