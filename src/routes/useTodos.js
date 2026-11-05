@@ -51,6 +51,14 @@ function useTodos() {
     newTodos.splice(todoIndex, 1);
     saveTodos(newTodos);
   };
+  // Edit an existing todo's text
+  const editTodo = (id, newText) => {
+    const todoIndex = todos.findIndex(todo => todo.id === id);
+    if (todoIndex < 0) return;
+    const newTodos = [...todos];
+    newTodos[todoIndex].text = newText;
+    saveTodos(newTodos);
+  };
 
   const state = {
     loading,
@@ -67,6 +75,7 @@ function useTodos() {
     addTodo,
     completeTodo,
     deleteTodo,
+    editTodo,
     setOpenModal,
     sincronizeTodos,
   };
