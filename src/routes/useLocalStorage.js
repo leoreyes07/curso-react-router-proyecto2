@@ -28,13 +28,13 @@ function useLocalStorage(itemName, initialValue) {
   const onSincronize = () => dispatch({
     type: actionTypes.sincronize,
   });
-  
+
   React.useEffect(() => {
     setTimeout(() => {
       try {
         const localStorageItem = localStorage.getItem(itemName);
         let parsedItem;
-        
+
         if (!localStorageItem) {
           localStorage.setItem(itemName, JSON.stringify(initialValue));
           parsedItem = initialValue;
@@ -43,18 +43,18 @@ function useLocalStorage(itemName, initialValue) {
         }
 
         onSuccess(parsedItem);
-      } catch(error) {
+      } catch (error) {
         onError(error);
       }
-    }, 1000);
+    }, 3000);
   }, [sincronizedItem]);
-  
+
   const saveItem = (newItem) => {
     try {
       const stringifiedItem = JSON.stringify(newItem);
       localStorage.setItem(itemName, stringifiedItem);
       onSave(newItem);
-    } catch(error) {
+    } catch (error) {
       onError(error);
     }
   };
